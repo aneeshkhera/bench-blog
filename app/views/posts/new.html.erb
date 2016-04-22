@@ -1,0 +1,5 @@
+<%= simple_form_for @post do |f| %>
+    <%= f.input :title, placeholder: "Post Title" %>
+    <%= f.input :text, as: :text, placeholder: "Your Post Here" %>
+    <%= f.button :submit, :class => "button tiny" %>
+<% end %>

@@ -1,0 +1,5 @@
+<%= simple_form_for @comment do |g| %>
+	<%= g.input :content, label: "Comment", as: :text, placeholder: "Your comment here..." %>
+	<%= g.input :post_id, as: :hidden, input_html: { value: params[:checkpost] } %>
+	<%= g.button :submit, :class => "button tiny" %>
+<% end %>

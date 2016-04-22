@@ -1,0 +1,6 @@
+<div class = "posts">
+	<h4><%= link_to post.title, post_path(post) %> </h4> 
+	<p> <%= post.text %> </p>
+		<p class = "poster"> Posted by: <%= post.user.email %> </p>
+		<p class = "poster"> Location: <%= post.place %> </p>
+</div>

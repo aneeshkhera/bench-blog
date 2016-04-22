@@ -1,0 +1,18 @@
+<body>
+<div id="header"> 
+	<h1> Travel Blog </h1>
+</div>
+
+<div id="nav">
+	
+	<% if current_user.try(:admin?) %>
+	  <a> <%= button_to "New Post", new_post_path, :class => "button tiny", :method => :get %> </a>
+	<% end %>
+</div>
+
+<div id="section">
+	<p> Welcome to TravelBlog! </p> 
+		<% @posts.each do |post| %>
+			<%= render "posts/post", :post => post %> 
+		<% end %>
+</div>

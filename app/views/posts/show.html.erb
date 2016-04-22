@@ -1,0 +1,28 @@
+<h2> <%= @post.title %> </h2>
+
+<div class = "in-page-post">	
+	<p> <%= @post.text %> </p>
+    <%= @post.created_at.strftime("%d %b. %Y") %> <br>
+    User: <%= @post.user.email %> </p>
+    <div id = "postlikearea">
+        <%= button_to "Like!", like_post_path(id: @post), :class => "button small", :method => :patch, :id => "likePostB" %>
+    </div>
+    <p id = "postL"> <%= @post.like %> likes </p>
+</div>
+
+<span>
+</span>
+
+<h4 id = "topcomm">Comments</h4>
+<%= link_to "Post Comment", comments_new_path(:checkpost => @post), :class => "button small", :id => "postComment" %>
+
+
+<% i = 1 %> 
+<% @post.comments.each do |x| %>
+	<%= render "comments/comment", :comment => x, :index => i %>
+	<% i = i+1 %>
+<% end %>
+
+<% if current_user == @post.user %>
+  <%= button_to "Delete Post", post_path(@post), :class => "button tiny", :id => "buttondestroy", :method => :delete %>
+<% end %>
